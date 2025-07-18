@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    overscroll-behavior-y: none;
+    @apply bg-gradient-to-br from-rose-gold-light/10 to-rose-gold/5;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Improve button & link interactions on iOS */
+  button, a {
+    @apply touch-manipulation tap-highlight-transparent;
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .cursive {
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .elegant-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  }
+  
+  .nav-link {
+    @apply text-rose-gold hover:text-rose-gold-dark transition-colors duration-200 px-3 py-2 text-sm font-medium;
+  }
+
+  .card {
+    @apply bg-white bg-opacity-90 backdrop-blur-sm border border-rose-gold/20 rounded-lg shadow-lg;
+    background-image: linear-gradient(135deg, rgba(247, 202, 201, 0.1) 0%, rgba(255, 255, 255, 0.9) 100%);
+  }
+
+  .section-title {
+    @apply text-4xl text-center text-rose-gold mb-12 font-light cursive;
+    text-shadow: 2px 2px 4px rgba(183, 110, 121, 0.1);
+  }
+
+  .timeline-card {
+    @apply bg-white p-6 rounded-lg shadow-md border-l-4 border-rose-gold/50 hover:border-rose-gold transition-colors duration-200;
+    background-image: linear-gradient(to right, rgba(247, 202, 201, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
+  }
+
+  .event-card {
+    @apply bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-200 border border-rose-gold/20;
+    background-image: linear-gradient(45deg, rgba(247, 202, 201, 0.1) 0%, rgba(255, 255, 255, 0.9) 100%);
+  }
+
+  .decorative-border {
+    @apply relative;
+  }
+
+  .decorative-border::before {
+    content: '';
+    @apply absolute -top-1 -bottom-1 -left-1 -right-1 bg-gradient-to-r from-rose-gold-light via-rose-gold to-rose-gold-light rounded-lg opacity-10 -z-10;
+  }
+
+  .couple-names {
+    @apply cursive text-5xl md:text-7xl text-rose-gold;
+    text-shadow: 2px 2px 4px rgba(183, 110, 121, 0.15);
+  }
+
+  .date-display {
+    @apply serif text-2xl md:text-3xl text-rose-gold-dark;
+    letter-spacing: 0.05em;
+  }
+
+  .romantic-text {
+    @apply cursive text-2xl md:text-3xl text-rose-gold-dark;
+  }
+
+  .elegant-heading {
+    @apply serif text-2xl text-rose-gold-dark font-light;
+    letter-spacing: 0.03em;
+  }
+
+  .detail-text {
+    @apply elegant-serif text-lg text-gray-600 leading-relaxed;
+  }
+
+  /* Form inputs optimized for iOS */
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="tel"],
+  textarea,
+  select {
+    @apply appearance-none rounded-md shadow-sm border-gray-300 focus:border-rose-gold focus:ring focus:ring-rose-gold/20 focus:ring-opacity-50;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  /* Custom number input styling for iOS */
+  input[type="number"] {
+    @apply pr-8; /* Space for custom controls */
+  }
+
+  /* Disable iOS input shadows */
+  input, textarea {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* iOS momentum scrolling for elements */
+  .scroll-touch {
+    -webkit-overflow-scrolling: touch;
+  }
+} 
