@@ -21,7 +21,7 @@ function Home() {
         
         <div className="relative">
           <h1 className="couple-names decorative-border inline-block px-8 py-4">
-            Polette & Hector
+            {t('coupleNames')}
           </h1>
           <div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-rose-gold/30"></div>
           <div className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-rose-gold/30"></div>

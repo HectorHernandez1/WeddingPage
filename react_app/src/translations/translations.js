@@ -8,6 +8,7 @@ export const translations = {
     rsvp: 'RSVP',
     
     // Home Page
+    coupleNames: 'Polette & Hector',
     gettingMarried: 'Are getting married',
     joinUs: 'Join us for our celebration of love at',
     
@@ -87,6 +88,7 @@ export const translations = {
     rsvp: 'RSVP',
     
     // Home Page
+    coupleNames: 'Polette Y Hector',
     gettingMarried: 'Se van a casar',
     joinUs: 'Acompáñanos en nuestra celebración de amor en',
     
