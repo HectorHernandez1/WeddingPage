@@ -21,7 +21,7 @@ function Home() {
         
         <div className="relative">
           <h1 className="couple-names decorative-border inline-block px-8 py-4">
-            Polette Eunice & Hector
+            Polette & Hector
           </h1>
           <div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-rose-gold/30"></div>
           <div className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-rose-gold/30"></div>
@@ -33,19 +33,19 @@ function Home() {
           {t('gettingMarried')}
         </div>
         <div className="date-display mb-8">
-          February 28, 2026
+          August 8, 2026
         </div>
         <div className="max-w-2xl mx-auto relative">
           <div className="detail-text mb-4">
             {t('joinUs')}
           </div>
           <div className="elegant-heading mb-2">
-            Some Where in Durango Mexico
+            Durango, DGO Mexico
           </div>
-          <div className="detail-text">
+          {/*<div className="detail-text">
             <br />123 Elegant Avenue
             Durango Mexico<br />
-          </div>
+          </div>*/}
         </div>
       </div>
     </div>
