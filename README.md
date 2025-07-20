@@ -52,6 +52,16 @@ cp .env.example .env
 docker-compose up
 ```
 
+### Running Tests
+
+Backend tests use `pytest`. Install the API requirements and run `pytest` from
+the project root:
+
+```bash
+pip install -r api/requirements.txt
+pytest
+```
+
 ### Production Deployment
 
 1. Set up SSL certificates
