@@ -209,11 +209,11 @@ async def create_rsvp(request: Request, rsvp_request: RSVPRequest):
                         additional_notes = %s,
                         updated_at = NOW()
                     WHERE guest_id = %s
-                    RETURNING id, guest_id, guest_relationship AS relationship, household_count, food_allergies,
+                    RETURNING id, guest_id, guest_relationship, household_count, food_allergies,
                               is_visiting_venue, arrival_date, additional_notes, created_at, updated_at
                     """,
                     (
-                        rsvp_request.relationship,
+                        rsvp_request.guest_relationship,
                         rsvp_request.householdCount,
                         rsvp_request.foodAllergies,
                         rsvp_request.isVisitingVenue,
@@ -231,12 +231,12 @@ async def create_rsvp(request: Request, rsvp_request: RSVPRequest):
                         is_visiting_venue, arrival_date, additional_notes
                     )
                     VALUES (%s, %s, %s, %s, %s, %s, %s)
-                    RETURNING id, guest_id, guest_relationship AS relationship, household_count, food_allergies,
+                    RETURNING id, guest_id, guest_relationship, household_count, food_allergies,
                               is_visiting_venue, arrival_date, additional_notes, created_at, updated_at
                     """,
                     (
                         guest_id,
-                        rsvp_request.relationship,
+                        rsvp_request.guest_relationship,
                         rsvp_request.householdCount,
                         rsvp_request.foodAllergies,
                         rsvp_request.isVisitingVenue,
@@ -256,7 +256,7 @@ async def create_rsvp(request: Request, rsvp_request: RSVPRequest):
             cur.execute(
                 """
                 SELECT g.full_name, g.phone_number, g.country_code,
-                       r.guest_relationship as relationship, r.household_count, r.food_allergies,
+                       r.guest_relationship, r.household_count, r.food_allergies,
                        r.is_visiting_venue, r.arrival_date, r.additional_notes
                 FROM guests g
                 JOIN rsvp_responses r ON r.guest_id = g.id
@@ -330,7 +330,7 @@ async def get_rsvp(request: Request, phone_number: str):
             fullName=result['full_name'],
             phoneNumber=clean_phone,
             countryCode=result['country_code'],
-            relationship=result['guest_relationship'],
+            guest_relationship=result['guest_relationship'],
             householdCount=result['household_count'],
             foodAllergies=result['food_allergies'],
             isVisitingVenue=result['is_visiting_venue'],
