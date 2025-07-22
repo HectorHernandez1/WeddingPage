@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, constr, validator
+from pydantic import BaseModel, Field, validator
+from typing import Annotated
 from typing import Optional, Union
 import re
 from database import get_db
@@ -66,10 +67,10 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # Pydantic models for request/response
 class RSVPRequest(BaseModel):
-    fullName: constr(min_length=2, max_length=100, pattern=r'^[a-zA-ZÀ-ÿ0-9\s\'-]+$')
-    phoneNumber: constr(min_length=10, max_length=20, pattern=r'^\d+$')
-    countryCode: constr(pattern=r'^\+\d{1,4}$')
-    guest_relationship: constr(pattern='^(bride|groom|friend)$')
+    fullName: Annotated[str, Field(min_length=2, max_length=100, pattern=r'^[a-zA-ZÀ-ÿ0-9\s\'-]+$')]
+    phoneNumber: Annotated[str, Field(min_length=10, max_length=20, pattern=r'^\d+$')]
+    countryCode: Annotated[str, Field(pattern=r'^\+\d{1,4}$')]
+    guest_relationship: Annotated[str, Field(pattern='^(bride|groom|friend)$')]
     householdCount: Union[str, int]  # Accept either string or integer
     foodAllergies: Optional[str] = None
     isVisitingVenue: bool = False
