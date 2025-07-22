@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, constr, Field, validator
+from pydantic import BaseModel, constr, validator
 from typing import Optional, Union
 import re
 from database import get_db
