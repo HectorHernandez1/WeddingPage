@@ -5,7 +5,9 @@ import { RoseCorner, FloralCornerDecoration } from '../components/DecorativeElem
 function RSVP() {
   const { t, language } = useLanguage();
   const defaultCountryCode = language === 'en' ? '+1' : '+52';
-  
+  const WeddingDate = '2026-08-08';
+
+
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
@@ -43,7 +45,7 @@ function RSVP() {
     if (!date) return true; // Optional field
     const selectedDate = new Date(date);
     const today = new Date();
-    const weddingDate = new Date('2026-02-28');
+    const weddingDate = new Date(WeddingDate);
     return selectedDate >= today && selectedDate <= weddingDate;
   };
 
