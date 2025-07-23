@@ -107,7 +107,7 @@ function RSVP() {
         fullName: formData.fullName,
         phoneNumber: formData.phoneNumber.replace(/[^\d]/g, ''), // Remove non-digits
         countryCode: formData.countryCode,
-        relationship: formData.relationship,
+        guest_relationship: formData.relationship,
         householdCount: parseInt(formData.householdCount, 10), // Convert to integer
         foodAllergies: formData.foodAllergies || null,
         isVisitingVenue: formData.isVisitingVenue,
