@@ -43,7 +43,7 @@ cd WeddingPage
 
 2. Set up environment variables
 ```bash
-cp .env.example .env
+cp .env.example .env 
 # Edit .env with your settings
 ```
 
